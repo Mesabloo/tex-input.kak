@@ -1,6 +1,8 @@
 declare-option -docstring "Table used to associate LaTeX symbols with Unicode equivalent" \
                -hidden str-to-str-map tex_input_translation_table
 
+declare-option -docstring "Whether tex-input is enabled or disabled" -hidden bool tex_input_enabled
+
 define-command -docstring "Setup the input method by adding all default entries in 'tex_input_translation_table'" \
                -params 0.. tex-input-setup %{
   set-option -add global tex_input_translation_table \
@@ -13,7 +15,7 @@ define-command -docstring "Setup the input method by adding all default entries 
 
 define-command -docstring "Enables the LaTeX input method in the current buffer" \
                -params 0 tex-input-enable %{
-  hook buffer InsertKey "\\" %{
+  hook -group tex-input buffer InsertChar "\\" %{
     prompt "tex-input: " -on-abort %{
       try %{ execute-keys "<backspace>" } # remove the `\` inserted
     } -shell-script-candidates %{
@@ -28,4 +30,24 @@ define-command -docstring "Enables the LaTeX input method in the current buffer"
       }
     } 
   }
+
+  set-option global tex_input_enabled true
+}
+
+define-command -docstring "Disables the LaTeX input method in the current buffer" \
+               -params 0 tex-input-disable %{
+  remove-hooks buffer tex-input
+
+  set-option global tex_input_enabled false
+}
+
+define-command -docstring "Toggles the LaTeX input method in the current buffer" \
+               -params 0 tex-input-toggle %{
+  evaluate-commands %sh{
+    if [ "$kak_opt_tex_input_enabled" = "true" ]; then
+      echo "tex-input-disable"
+    else
+      echo "tex-input-enable"
+    fi
+  }               
 }
