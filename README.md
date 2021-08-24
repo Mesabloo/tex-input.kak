@@ -39,6 +39,6 @@ Add `rc/tex-input.kak` to your autoloads or `source` it from your `kakrc`.
 ### Setting additional LaTeX commands 
 
 You can extend the dictionary of available LaTeX by passing additional parameters to the `tex-input-setup`.
-Those parameters must be of the form `<latex command>=<unicode character>` for them to work.
+Those parameters must be of the form `"<latex command>:<unicode character>"` for them to work.
 
 For example, one may call `tex-input-setup "%=%"` to add `\%` to the list of recognized commands.
