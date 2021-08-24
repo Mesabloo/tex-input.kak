@@ -13,17 +13,17 @@ Provides a very simple input method similar to Emacs' TeX input method (used in 
 
 ### With [plug.kak]
 
-[plug.kak]: https://github.com/andreyorst/plug.kak
-
 ```sh
-plug "mesabloo/tex-input.kak" %{
+plug "mesabloo/tex-input.kak" config {
   tex-input-setup
 }
 ```
 
-### Without plug
+### Without [plug.kak]
 
-Add `rc/tex-input.kak` to your autoloads or `source` it from your `kakrc`.
+[plug.kak]: https://github.com/andreyorst/plug.kak
+
+Add `rc/tex-input.kak` to your autoloads or `source` it from your `kakrc`, and call `tex-input-setup` in your `kakrc`.
 
 ## Documentation 
 
@@ -41,4 +41,4 @@ Add `rc/tex-input.kak` to your autoloads or `source` it from your `kakrc`.
 You can extend the dictionary of available LaTeX by passing additional parameters to the `tex-input-setup`.
 Those parameters must be of the form `"<latex command>:<unicode character>"` for them to work.
 
-For example, one may call `tex-input-setup "%=%"` to add `\%` to the list of recognized commands.
+For example, one may call `tex-input-setup "%:%"` to add `\%` to the list of recognized commands.
