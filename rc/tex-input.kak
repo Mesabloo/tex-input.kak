@@ -9,9 +9,12 @@ define-command -docstring "Setup the input method by adding all default entries 
                "times:×" "div:÷" "neg:¬" "pm:±" \
                "^1:¹" "^2:²" "^3:³" "^4:⁴" "^5:⁵" "^6:⁶" "^7:⁷" "^8:⁸" "^9:⁹" "^0:⁰" "^-:⁻" "^+:⁺" "^=:⁼" "^(:⁽" "^):⁾" "^i:ⁱ" "^n:ⁿ" \
                "_1:₁" "_2:₂" "_3:₃" "_4:₄" "_5:₅" "_6:₆" "_7:₇" "_8:₈" "_9:₉" "_0:₀" "_(:₍" "_):₎" "_=:₌" "_+:₊" "_-:₋" "_a:ₐ" "_e:ₑ" "_h:ₕ" "_i:ᵢ" "_j:ⱼ" "_k:ₖ" "_l:ₗ" "_m:ₘ" "_n:ₙ" "_o:ₒ" "_p:ₚ" "_r:ᵣ" "_s:ₛ" "_t:ₜ" "_u:ᵤ" "_v:ᵥ" "_x:ₓ" \
-               "lambda:λ" "Lambda:Λ" "alpha:ɑ" \
-               "\\:\\" \
-               "mathbb{N}:ℕ" \
+               "alpha:ɑ" "Alpha:Α" "beta:β" "Beta:Β" "gamma:γ" "Gamma:Γ" "delta:δ" "Delta:Δ" "epsilon:ε" "Epsilon:Ε" "zeta:ζ" "Zeta:Ζ" "eta:η" "Eta:Η" "theta:θ" "Theta:Θ" "iota:ι" "Iota:Ι" "kappa:κ" "Kappa:Κ" "lambda:λ" "Lambda:Λ" "mu:μ" "Mu:Μ" "nu:ν" "Nu:Ν" "xi:ξ" "Xi:Ξ" "omicron:ο" "Omicron:Ο" "pi:π" "Pi:Π" "rho:ρ" "Rho:Ρ" "sigma:σ" "Sigma:Σ" "tau:τ" "Tau:Τ" "upsilon:υ" "Upsilon:Υ" "phi:φ" "Phi:Φ" "chi:χ" "Chi:Χ" "psi:ψ" "Psi:Ψ" "omega:ω" "Omega:Ω" \
+               "\:\" \
+               "forall:∀" "to:→" "->:→" "gets:←" "<-:←" "Rightarrow:⇒" "=>:⇒" "Leftarrow:⇐" "<=:⇐" "leftwavearrow:↜" "<~:↜" "rightwavearrow:↝" "~>:↝" "leftrightwavearrow:↭" "<~>:↭" \
+               "prod:∏" "coprod:∐" "sum:∑" \
+               "(.):⊙" "(x):⊗" "(+):⊕" "(-):⊖" "(/):⊘" "(*):⊛" "(<):⧀" "(>):⧁" "(=):⊜" \
+               "mathbb{N}:ℕ" "bbN:ℕ" \
                %arg{@}
   # TODO: add more
 }
