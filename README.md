@@ -9,6 +9,10 @@ Provides a very simple input method similar to Emacs' TeX input method (used in 
 
 [Kakoune]: https://kakoune.org
 
+## Dependencies
+
+This extension makes use of perl 5 internally, so you have to have `perl` in your `$PATH` for it to work.
+
 ## Installation
 
 ### With [plug.kak]
@@ -42,3 +46,6 @@ You can extend the dictionary of available LaTeX by passing additional parameter
 Those parameters must be of the form `"<latex command>:<unicode character>"` for them to work.
 
 For example, one may call `tex-input-setup "%:%"` to add `\%` to the list of recognized commands.
+
+Both literal `:` and `\` need to be escaped when binding a new latex command.
+For example, `/\\:∧` is a valid specification, while `/\:∧` is not.
