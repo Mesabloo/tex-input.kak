@@ -25,7 +25,9 @@ define-command -docstring "Setup the input method by adding all default entries 
 define-command -docstring "Enables the LaTeX input method in the current buffer" \
                -params 0 tex-input-enable %{
   hook -group tex-input buffer InsertChar "\\" %{
-     prompt "tex-input: " -on-abort %{
+    map buffer prompt "<space>" "<ret>"
+    
+    prompt "tex-input: " -on-abort %{
       try %{ execute-keys "<backspace>" } # remove the `\` inserted
     } -shell-script-candidates %{
       perl -CS -F'(?<!(?<!\\)\\):' -lane 'BEGIN{$/ = " "} @F[0] =~ s/\\:/:/; @F[0] =~ s/\\\\/\\/; print @F[0] . " "' <<< "$kak_opt_tex_input_translation_table"
@@ -37,8 +39,7 @@ define-command -docstring "Enables the LaTeX input method in the current buffer"
 
         RESULT=$(perl -CS -F'(?<!(?<!\\)\\):' -lane "$PERL_CODE" <<< "$kak_opt_tex_input_translation_table")
 
-        echo "echo -debug 'input: \"$kak_text\"'"
-        echo "echo -debug 'result: \"$RESULT\"'"
+        echo "unmap buffer prompt '<space>'"
 
         echo "set-register dquote '$RESULT'"
         echo "execute-keys \"<backspace><esc><s-p>\""
