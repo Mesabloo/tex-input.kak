@@ -18,7 +18,7 @@ This extension makes use of perl 5 internally, so you have to have `perl` in you
 ### With [plug.kak]
 
 ```sh
-plug "mesabloo/tex-input.kak" config {
+plug "mesabloo/tex-input.kak" config %{
   tex-input-setup
 }
 ```
