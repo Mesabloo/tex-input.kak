@@ -34,16 +34,16 @@ define-command -docstring "Enables the LaTeX input method in the current buffer"
     } %{
       evaluate-commands %sh{        
         PERL_CODE='BEGIN{$/ = " "} @F[0] =~ s/\\\\/\\/; @F[1] =~ s/\\\\/\\/; @F[0] =~ s/\\:/:/; @F[1] =~ s/\\:/:/; print @F[1] if "@F[0] " eq '
-        PERL_CODE="$PERL_CODE'$kak_text '"
+        PERL_CODE="$PERL_CODE'${kak_text%% } '"
         # We need to include a space at the end of the string to prevent expanding `\'` therefore causing a syntax error
 
         RESULT=$(perl -CS -F'(?<!(?<!\\)\\):' -lane "$PERL_CODE" <<< "$kak_opt_tex_input_translation_table")
 
         echo "unmap buffer prompt '<space>'"
 
-        echo "set-register dquote '$RESULT'"
-        echo "execute-keys \"<backspace><esc><s-p>\""
-        echo "execute-keys -with-hooks \"i\""
+        echo "set-register dquote '$RESULT '"
+        echo "execute-keys \"<backspace><a-;><s-p>\""
+        # echo "execute-keys -with-hooks \"i\""
       }
     } 
   }
